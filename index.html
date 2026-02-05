@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>Coffee House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Coffee House — specialty coffee. Minimalism, calm and taste in every detail." />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= INTRO ================= -->
+<div id="intro" class="d-flex align-items-center justify-content-center">
+  <div class="intro-content text-center">
+    <div class="bean" aria-hidden="true">☕</div>
+    <h1>Coffee House</h1>
+    <p>Coffee is a moment</p>
+
+    <button id="enterBtn" class="enter-btn btn btn-outline-dark" type="button" aria-label="Enter site">
+      <span>Enter</span>
+    </button>
+  </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top glass" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Coffee House</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+            aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-4">
+        <li class="nav-item"><a class="nav-link" href="#about">Philosophy</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Signature</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Visit</a></li>
+      </ul>
+    </div>
+
+    <!-- Cart button -->
+    <button id="cartBtn" class="btn btn-outline-light position-relative ms-3" data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Open cart" title="Cart">
+      🛒
+      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display:none">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero-modern" role="banner" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <!-- Inline SVG illustration (hero-art) -->
+  <div class="hero-art" aria-hidden="true">
+    <!-- Inline SVG illustration (kept compact) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc" preserveAspectRatio="xMidYMid slice">
+      <title id="title">Coffee House — hero illustration</title>
+      <desc id="desc">Stylized modern hero background with decorative blobs, floating coffee beans, and a steaming cup illustration.</desc>
+
+      <defs>
+        <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#2b1f1a"/>
+          <stop offset="0.35" stop-color="#4b2f23"/>
+          <stop offset="1" stop-color="#6d4a36"/>
+        </linearGradient>
+        <linearGradient id="blobGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#e9d8a6"/>
+          <stop offset="1" stop-color="#c89a5a"/>
+        </linearGradient>
+        <radialGradient id="vignette" cx="50%" cy="40%" r="80%">
+          <stop offset="0%" stop-color="rgba(0,0,0,0.0)"/>
+          <stop offset="75%" stop-color="rgba(0,0,0,0.25)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0.45)"/>
+        </radialGradient>
+
+        <linearGradient id="beanGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3b2b22"/>
+          <stop offset="1" stop-color="#6b4b3a"/>
+        </linearGradient>
+
+        <filter id="steamBlur">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+
+       <style>
+  .svg-title { font-family: "Segoe UI", Roboto, Arial, sans-serif; font-weight:800; fill:#fff; font-size:64px; }
+  .svg-sub { fill: rgba(255,255,255,0.92); font-size:28px; }
+  .svg-muted { fill: rgba(255,255,255,0.72); font-size:16px; }
+</style>
+
+
+      <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+      <rect width="100%" height="100%" fill="url(#vignette)" style="mix-blend-mode:multiply;opacity:0.9"/>
+
+      <!-- decorative blob -->
+      <g transform="translate(980,140)">
+        <path d="M210,50 C300,10 360,-10 440,40 C520,90 540,210 500,300 C460,390 360,420 270,420 C180,420 110,380 60,310 C10,240 10,140 70,90 C130,40 170,90 210,50 Z"
+              fill="url(#blobGrad)" opacity="0.98" />
+      </g>
+
+      <!-- a few beans -->
+      <g id="beans" transform="translate(0,0)">
+        <g transform="translate(220,260) rotate(-14)">
+          <ellipse rx="28" ry="42" fill="url(#beanGrad)"/>
+        </g>
+        <g transform="translate(420,120) rotate(18)">
+          <ellipse rx="22" ry="34" fill="url(#beanGrad)"/>
+        </g>
+        <g transform="translate(110,480) rotate(-8)">
+          <ellipse rx="20" ry="30" fill="url(#beanGrad)"/>
+        </g>
+      </g>
+
+      <!-- left text block -->
+      <g transform="translate(120,200)">
+        <text class="svg-title">Coffee House</text>
+        <text class="svg-sub" x="0" y="86">Crafted blends • Quiet moments</text>
+        <text class="svg-muted" x="0" y="130">Small-batch roasts, served with care</text>
+      </g>
+
+      <!-- cup on right -->
+      <g transform="translate(980,260)">
+        <ellipse cx="160" cy="300" rx="120" ry="36" fill="rgba(0,0,0,0.45)" opacity="0.7"/>
+        <g transform="translate(80,170)">
+          <path d="M80 30 C120 10 160 10 200 30 L200 120 C160 150 120 150 80 120 Z" fill="#fff" />
+          <ellipse cx="140" cy="70" rx="58" ry="34" fill="#3b2b22"/>
+        </g>
+        <g filter="url(#steamBlur)" opacity="0.85">
+          <path d="M140 120 C130 70 110 40 110 0" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="12" stroke-linecap="round"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-content container">
+    <div class="row align-items-center">
+      <div class="col-lg-7 hero-text-wrap">
+        <p class="hero-label">SPECIALTY COFFEE</p>
+        <h1 class="hero-title">Coffee is not a drink.<br><span>It’s a moment.</span></h1>
+        <p class="hero-subtitle">Crafted with care. Served with soul.</p>
+
+        <div class="hero-actions d-flex gap-3">
+          <a href="#menu" class="btn btn-primary btn-lg">Explore Menu</a>
+          <button id="heroOrder" class="btn btn-outline-light btn-lg">Order Now</button>
+        </div>
+
+        <p class="hero-meta mt-3 text-muted" aria-hidden="true">Open daily · 08:00–20:00 · Sample Street 1</p>
+      </div>
+
+      <div class="col-lg-5 d-none d-lg-block">
+        <!-- decorative right visual (inline SVG above) -->
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">↓</div>
+</header>
+
+<main>
+  <!-- ABOUT -->
+  <section id="about" class="section dark py-5">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-md-6">
+          <h2 class="section-title">Our Philosophy</h2>
+          <p class="section-text">Coffee House is a place where coffee becomes a ritual. Minimalism, calm and taste in every detail.</p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-fluid rounded-xl" alt="People enjoying coffee"
+               src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1400&auto=format&fit=crop">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section light py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Signature Drinks</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="drink-card card h-100" data-id="espresso" data-name="Espresso" data-price="30" data-img="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800">
+            <img class="card-img-top" alt="Espresso" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800">
+            <div class="card-body text-center">
+              <h5 class="card-title">Espresso</h5>
+              <span>30 UAH</span>
+              <button type="button" class="btn btn-outline-dark w-100 mt-3 btn-add-cart">Add to cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="drink-card card h-100" data-id="cappuccino" data-name="Cappuccino" data-price="45" data-img="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800">
+            <img class="card-img-top" alt="Cappuccino" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800">
+            <div class="card-body text-center">
+              <h5 class="card-title">Cappuccino</h5>
+              <span>45 UAH</span>
+              <button type="button" class="btn btn-outline-dark w-100 mt-3 btn-add-cart">Add to cart</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="drink-card card h-100" data-id="filter" data-name="Filter" data-price="40" data-img="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800">
+            <img class="card-img-top" alt="Filter coffee" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800">
+            <div class="card-body text-center">
+              <h5 class="card-title">Filter</h5>
+              <span>40 UAH</span>
+              <button type="button" class="btn btn-outline-dark w-100 mt-3 btn-add-cart">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section dark text-center py-5">
+    <div class="container">
+      <h2 class="section-title">Visit Us</h2>
+      <p class="section-text">Sample Street 1 · Mon–Sun 08:00–20:00</p>
+      <a class="btn-primary mt-4 d-inline-block btn btn-primary" href="mailto:info@coffeehouse.example?subject=Visit%20Coffee%20House">Get in touch</a>
+    </div>
+  </section>
+</main>
+
+<!-- Cart modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="cartItems" class="list-group mb-3"></div>
+        <div class="d-flex justify-content-between align-items-center">
+          <strong>Total:</strong>
+          <strong id="cartTotal">0 UAH</strong>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="checkoutBtn" type="button" class="btn btn-primary">Checkout</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer text-center py-3">© 2026 Coffee House</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html> 
